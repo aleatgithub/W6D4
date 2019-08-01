@@ -29,3 +29,11 @@ end
     viewer_id: rand(1..50)
   )
 end
+
+75.times do
+  Comment.create(
+    user_id: rand(1..50),
+    artwork_id: rand(1..100),
+    body: Faker::Lorem.paragraphs(1)
+  )
+end

@@ -26,7 +26,7 @@ class User < ApplicationRecord
     dependent: :destroy
   
   has_many :comments, 
-    foreign_key: :author_id, 
+    foreign_key: :user_id, 
     class_name: 'Comment',
     dependent: :destroy
 
