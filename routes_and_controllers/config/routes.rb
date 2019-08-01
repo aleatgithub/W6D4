@@ -36,8 +36,6 @@ Rails.application.routes.draw do
     resources :likes, only: [:index]
   end
 
-
-
   #get '/users/:user_id/artworks', to: 'artworks#index'
 
 end

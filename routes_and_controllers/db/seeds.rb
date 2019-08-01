@@ -30,10 +30,18 @@ end
   )
 end
 
-75.times do
+100.times do
   Comment.create(
     user_id: rand(1..50),
     artwork_id: rand(1..100),
     body: Faker::Lorem.paragraphs(1)
+  )
+end
+
+100.times do 
+  Like.create(
+    liker_id: rand(1..50),
+    likable_type: ['Artwork', 'Comment'].sample,
+    likable_id: rand(1..100)
   )
 end
