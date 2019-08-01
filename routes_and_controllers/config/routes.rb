@@ -19,14 +19,23 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:index, :create, :destroy]
 
+  resources :likes, only: [:index, :create, :destroy]
+
   resources :users do
     resources :artworks, only: [:index]
     resources :comments, only: [:index]
+    resources :likes, only: [:index]
   end
 
   resources :artworks do
     resources :comments, only: [:index]
+    resources :likes, only: [:index]
   end
+
+  resources :comments do 
+    resources :likes, only: [:index]
+  end
+
 
 
   #get '/users/:user_id/artworks', to: 'artworks#index'

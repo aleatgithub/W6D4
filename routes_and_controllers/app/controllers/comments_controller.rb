@@ -22,14 +22,12 @@ class CommentsController < ApplicationController
   end
 
   def destroy 
-    comment = Comment.find(comment_params[:id])
+    comment = Comment.find(params[:id])
 
     if comment.delete
       render json: comment
-    elsif comment
-      render json: comment.errors.full_messages, status: :forbidden
     else
-      render plain: 'Comment not found', status: :not_found
+      render json: comment.errors.full_messages, status: :forbidden
     end
   end
 
